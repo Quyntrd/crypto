@@ -1,0 +1,15 @@
+1. The Frequency (Monobit) Test - Частотный побитовый
+2. Frequency Test within a Block - Частотный блочный
+3. The Runs Test - Серий
+4. Tests for the Longest-Run-of-Ones in a Block - Самая длинная серия единиц в блоке
+5. The Binary Matrix Rank Test - Рангов бинарных матриц
+6. The Discrete Fourier Transform (Spectral) Test - Спектральный
+7. The Non-overlapping Template Matching Test - Совпадение неперекрывающихся шаблонов
+8. The Overlapping Template Matching Test - Совпадение перекрывающихся шаблонов
+9. Maurer's "Universal Statistical" Test - Универсальный Маурера
+10. The Linear Complexity Test - На линейную сложность
+11. The Serial Test - На периодичность
+12. The Approximate Entropy Test - Приблизительной энтропии
+13. The Cumulative Sums (Cusums) Test - Кумулятивных сумм
+14. The Random Excursions Test - Произвольные отклонения (вар. 1)
+15. The Random Excursions Variant Test - Произвольные отклонения (вар. 2)
