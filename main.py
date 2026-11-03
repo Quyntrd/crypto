@@ -6,7 +6,6 @@
 Режим ref=True в тестах воспроизводит константы референсного кода NIST STS, по которым посчитана
 Таблица 1 методички (старые pi_i для шаблонов, pi_0=0.01047 для линейной сложности).
 Режим ref=False - теоретически точные константы (для справки).
-ВАЖНО: в Таблице 1 столбцы "pi" и "e" перепутаны: значения "pi" получаются на data.e, "e" - на data.pi.
 """
 import math
 from math import gcd
@@ -190,7 +189,7 @@ def berlekamp_massey(block):
     return L
 
 
-PI_LC_REF = [0.01047, 0.03125, 0.125, 0.5, 0.25, 0.0625, 0.020833]          # как в коде STS (0.01047 - опечатка)
+PI_LC_REF = [0.01047, 0.03125, 0.125, 0.5, 0.25, 0.0625, 0.020833]
 PI_LC_EXACT = [1 / 96, 1 / 32, 1 / 8, 1 / 2, 1 / 4, 1 / 16, 1 / 48]
 
 
@@ -209,8 +208,6 @@ def linear_complexity_test(bits, M=500, K=6, ref=True):
     chi2 = sum((v[i] - N * pi[i]) ** 2 / (N * pi[i]) for i in range(K + 1))
     return float(gammaincc(K / 2.0, chi2 / 2.0)), chi2, v
 
-
-# ----------------------------- Вспомогательное -----------------------------
 
 def read_bits(path, n=1_000_000):
     with open(path, "rb") as f:
@@ -244,7 +241,6 @@ def run_tests(name, bits, expected=None):
 # ----------------------------- main -----------------------------
 
 if __name__ == "__main__":
-    # Таблица 1 методички (значения даны так, как напечатаны; подписи столбцов в методичке перепутаны)
     TABLE_COL_PI = (0.847187, 0.110434, 0.826335)   # получаются на data.e
     TABLE_COL_E = (0.010186, 0.296897, 0.255475)    # получаются на data.pi
 
@@ -254,7 +250,7 @@ if __name__ == "__main__":
     for n, taps, k in variants:
         print("  случай %d: %-20s -> %s" % (k, poly_str(n, taps), "primitive" if is_primitive_poly(n, taps) else "NOT primitive"))
 
-    # 2. Проверка работоспособности тестов на data.e и data.pi (Таблица 1)
+    # 2. Проверка работоспособности тестов на data.e и data.pi
     run_tests("data.e  (в Таблице 1 - столбец 'π')", read_bits("data.e"), TABLE_COL_PI)
     run_tests("data.pi (в Таблице 1 - столбец 'e')", read_bits("data.pi"), TABLE_COL_E)
 
